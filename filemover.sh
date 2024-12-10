@@ -13,3 +13,17 @@
 # Проверка, есть ли файлы с указанным расширением в исходной директории
 
 # Копирование файлов с указанным расширением в целевую директорию
+
+
+for file in "$source_directory"/*."$file_extension"; do
+ 
+if[ -f 	"$file" ]; then
+base_name=$(basename "$file" ."$file_extension")
+new_file="$target_directory/$base_name.$new_file_extension"
+
+cp "$file" "$new_file"
+
+echo "Скопирован файл: $file -> $new_file"
+
+fi
+done
